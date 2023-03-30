@@ -1,32 +1,70 @@
-# Prerequisites
-*.d
+using System;
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+namespace ConsoleApp3
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            //Product product = new Product();
+            //product.ProductName = "Phone";
+            //product.ProductPrice = 800;
+            //product.DateofProduction = 2023;
 
-# Precompiled Headers
-*.gch
-*.pch
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+            //product.ProductName = "Printer";
+            //product.ProductPrice = 1200;
+            //product.DateofProduction = 2019;
 
-# Fortran module files
-*.mod
-*.smod
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
 
-# Executables
-*.exe
-*.out
-*.app
+
+
+            Product[] products = new Product[2]; // 2 ölçüsü olan Product massivi yaradır
+
+            // İlk məhsulu yaradır və onu seriala əlavə edir
+            Product product1 = new Product();
+            product1.ProductName = "Phone";
+            product1.ProductPrice = 800;
+            product1.DateofProduction = 2023;
+            products[0] = product1;
+
+            // ikinci məhsulu yaradır və onu seriala əlavə edir
+            Product product2 = new Product();
+            product2.ProductName = "Printer";
+            product2.ProductPrice = 1200;
+            product2.DateofProduction = 2019;
+            products[1] = product2;
+
+            // Massivdəki məhsullara daxil ol və çap edir
+            Console.WriteLine("List of Products:");
+            
+            Store store = new Store();
+
+            store.Name = "store";
+            store.Products = products;
+        }
+        
+
+        public class Product
+        {
+            public string ProductName { get; set; }
+            public double ProductPrice { get; set; }
+            public int DateofProduction { get; set; }
+        }
+
+
+        public class Store
+        { 
+            public string Name { get; set; }  
+             public Product[] Products { get; set; }
+        }
+
+
+
+
+    }
+
+}
+
+    
